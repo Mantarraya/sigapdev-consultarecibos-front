@@ -779,7 +779,6 @@ class PagoRow extends React.Component {
                         onClick={this.editarFila}
                         className="waves-effect waves-light btn-small modal-trigger" >
                         <i className="large material-icons center">edit</i>
-
                     </button>
 
 
