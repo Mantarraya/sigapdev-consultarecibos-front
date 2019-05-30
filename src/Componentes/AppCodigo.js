@@ -197,7 +197,7 @@ componentDidUpdate(){
     if (this.state.pagos.length > 0) {
       return (
         <div className="">
-          <h3>Estado de pagos por alumno
+          <h3>Estado de matricula por autorización
           <ul id="nav-mobile" className="right  hide-on-med-and-down">
               <li ><a className="seleccionar" onClick={this.Regresar} >Regresar<i className="material-icons right">reply</i></a></li>
           </ul>

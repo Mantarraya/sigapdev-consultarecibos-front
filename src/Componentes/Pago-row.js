@@ -791,7 +791,7 @@ class PagoRow extends React.Component {
                         </div>
 
                         <p>Alumno:</p>  <h5> Nombres ApePaterno ApeMaterno </h5>
-                        <p>Ciclo:</p> <input type='text' value="Some text"></input>
+                        <p>Ciclo:</p>  <h5> <input type='text' value="Some text"></input> </h5>
                         <p>Numero de recibo:</p> <input type='text' value="Some text"></input>
                         <p>Concepto:</p>
                         <input type="text" list="browsers" />

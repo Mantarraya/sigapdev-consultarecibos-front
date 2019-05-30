@@ -437,7 +437,7 @@ componentDidUpdate(){
         <div className="">
         {this.state.aparecer?(
         <div>
-          <h3>Estado de pagos por alumno
+          <h3>Estado de matrícula por autorización
           <ul id="nav-mobile" className=" row right  hide-on-med-and-down">
               <li ><a className="seleccionar col" onClick={this.enviarFormulario} >Revisar Beneficio<i className="material-icons right">edit</i></a></li>
               <li ><a className="seleccionar col" onClick={this.Regresar} >Regresar<i className="material-icons right">reply</i></a></li>
@@ -516,7 +516,7 @@ componentDidUpdate(){
                   {/* <ImporteDolar importe={this.CalcularImporteDolar()} /> */}
                 </div>
                 <div className="col-md-7">
-                
+
                   <ImporteDolar importe={this.CalcularImporteDolar()} />
                 </div>
                 <div className="col-md-3">

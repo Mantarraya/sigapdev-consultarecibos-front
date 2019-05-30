@@ -450,13 +450,32 @@ button.delete:hover{
 
 /* The Modal (background) */
 .modal {
+
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-
-  left: 0;
-  top: 0;
-  width: 60%; /* Full width */
+  position: absolute;
+  width: 40%; /* Full width */
   height: 100%; /* Full height */
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius:6px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 
-  background-color: rgb(255, 255, 255); /* Fallback color */
+
 }
+
+.modal .close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 20px;
+	right: 20px;
+	opacity: 0.8;
+	transition: all 200ms;
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #777;
+}
+
