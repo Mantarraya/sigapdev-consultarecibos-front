@@ -459,33 +459,32 @@ componentDidUpdate(){
               </div> */}
                 <div className="SplitPane row">
                   <div className="inline col-xs-3 ">
-                    <div>
-                    <label>Del:</label>
-                    <FiltroFecha1 Fechas={this.SeleccionFechaDel} />
-                    </div>
-                    <div>
-                    <label>Al:</label>
-                    <FiltroFecha1 Fechas={this.SeleccionFechaAl} />
-                    </div>
+                    <thead>
+                                                <tr>
+                                                    <th className="th ancho">Semestre</th>
+                                                    <th className="th ancho">N° Créditos</th>
+                                                    <th className="th ancho">N° Repitencia</th>
+                                                    <th className="th ancho">N° Importe</th>
+
+                                                </tr>
+                                            </thead>
                   </div >
                   <div className="col-xs-3 ">
 
-                    <div className="col-xs-12 text-align center">
-                      <h4 className="  espacio">Conceptos</h4>
-                      <div className="scroll center-xs mt-xs-2 ">
-                        <form action="#"><ConceptoList listado={this.state.conceptos} /></form>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 center espacio2">
-                      <button onClick={this.Filtrar}  className="waves-effect waves-light btn-small " type="submit">Filtrar<i className="large material-icons left">filter_list</i></button>
-
-                    </div>
+                    
                   </div>
                   <div className="centrar col-xs-4">
-                    <h4 className=" centrar">Recibo</h4>
-                    <div>
-                      <NumeroRecibo Numeros={this.FiltrarNumeros} />
-                    </div>
+
+                    <div className="inline col-xs-3 ">
+                    <thead>
+                                                <tr>
+                                                    <th className="th ancho">MPUG</th>
+                                                    <th className="th ancho">MEP</th>
+                                                    <th className="th ancho">E</th>
+
+                                                </tr>
+                                            </thead>
+                  </div >
                   </div>
                 </div>
               </div>
@@ -522,20 +521,13 @@ componentDidUpdate(){
                 <div className="col-md-3">
                 {/* <form action="#">
                     <label className="row  ">
-
                       <input
                         onClick="{this.colocar}"
                         className="align-self-center"
                         id="xd"
                         type="checkbox" />
                         <span> observacion</span>
-
-
-
-
-
                         </label>
-
                   </form> */}
 
                   <div>
@@ -1050,7 +1042,6 @@ FiltrarFecha(Fechas) {
           })
         }
 /*
-
         console.log(arrayfiltrado);
         console.log(this.state.pagocero);*/
 

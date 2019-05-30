@@ -87,7 +87,7 @@ Regresar=(e)=>{
     
       return (
         <div className="">
-          <h3>Estado de pagos  <ul id="nav-mobile" class="right  hide-on-med-and-down">
+          <h3>Estado de matrícula por autorización<ul id="nav-mobile" class="right  hide-on-med-and-down">
               <li ><a className="seleccionar" onClick={this.Regresar} >Regresar<i className="material-icons right">reply</i></a></li>
           </ul></h3>
          
