@@ -77,7 +77,10 @@ class App extends React.Component {
     this.enviar=this.enviar.bind(this);
     this.Funcion=this.Funcion.bind(this);
     this.Regresar=this.Regresar.bind(this);
-
+    this.openNav = this.openNav.bind(this);
+    this.openMatrAuth = this.openMatrAuth.bind(this);
+    this.closeNav = this.closeNav.bind(this);
+    this.show_or_hide = this.show_or_hide.bind(this);
   }
 componentDidUpdate(){
     if(this.state.estado!=0){
@@ -424,7 +427,12 @@ componentDidUpdate(){
 
 
   Regresar=(e)=>{
-
+    try{
+      this.closeNav();
+    }
+    catch(error){
+      //Nothing happens
+    }
     browserHistory.push('/');
     e.preventDefault();
 
@@ -434,14 +442,16 @@ componentDidUpdate(){
     if (this.state.pagos.length > 0) {
       return (
 
-        <div className="">
+        <div id="main" className="">
         {this.state.aparecer?(
         <div>
-          <h3>Estado de matrícula por autorización
+          <h3>Estado de pagos por alumno
           <ul id="nav-mobile" className=" row right  hide-on-med-and-down">
+              {/*<li ><a className="seleccionar col" onClick={this.seguimientoEgresados} >Seguimiento de Egresados<i className="material-icons right">edit</i></a></li>
               <li ><a className="seleccionar col" onClick={this.enviarFormulario} >Revisar Beneficio<i className="material-icons right">edit</i></a></li>
-              <li ><a className="seleccionar col" onClick={this.Regresar} >Regresar<i className="material-icons right">reply</i></a></li>
-
+        <li ><a className="seleccionar col" onClick={this.Regresar} >Regresar<i className="material-icons right">reply</i></a></li>*/}
+              <li ><a className="seleccionar col" onClick={this.openMatrAuth} >Ver matricula por autorizacion<i className="material-icons right">group_work</i></a></li>
+              <li ><a className="seleccionar col" onClick={this.openNav} >Ver todo<i className="material-icons right">apps</i></a></li>
           </ul>
           </h3>
           <hr/>
@@ -459,32 +469,33 @@ componentDidUpdate(){
               </div> */}
                 <div className="SplitPane row">
                   <div className="inline col-xs-3 ">
-                    <thead>
-                                                <tr>
-                                                    <th className="th ancho">Semestre</th>
-                                                    <th className="th ancho">N° Créditos</th>
-                                                    <th className="th ancho">N° Repitencia</th>
-                                                    <th className="th ancho">N° Importe</th>
-
-                                                </tr>
-                                            </thead>
+                    <div>
+                    <label>Del:</label>
+                    <FiltroFecha1 Fechas={this.SeleccionFechaDel} />
+                    </div>
+                    <div>
+                    <label>Al:</label>
+                    <FiltroFecha1 Fechas={this.SeleccionFechaAl} />
+                    </div>
                   </div >
                   <div className="col-xs-3 ">
 
-                    
+                    <div className="col-xs-12 text-align center">
+                      <h4 className="  espacio">Conceptos</h4>
+                      <div className="scroll center-xs mt-xs-2 ">
+                        <form action="#"><ConceptoList listado={this.state.conceptos} /></form>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 center espacio2">
+                      <button onClick={this.Filtrar}  className="waves-effect waves-light btn-small " type="submit">Filtrar<i className="large material-icons left">filter_list</i></button>
+
+                    </div>
                   </div>
                   <div className="centrar col-xs-4">
-
-                    <div className="inline col-xs-3 ">
-                    <thead>
-                                                <tr>
-                                                    <th className="th ancho">MPUG</th>
-                                                    <th className="th ancho">MEP</th>
-                                                    <th className="th ancho">E</th>
-
-                                                </tr>
-                                            </thead>
-                  </div >
+                    <h4 className=" centrar">Recibo</h4>
+                    <div>
+                      <NumeroRecibo Numeros={this.FiltrarNumeros} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -500,10 +511,22 @@ componentDidUpdate(){
             Seleccionar todo<i className="large material-icons left">check</i>
             </button>
 
+            <button onClick={this.show_or_hide} className="waves-effect waves-light btn-small newbotonSeleccionar start">
+            Mostrar más
+            </button>
+
             </div>
 
           <div className="row">
             <div className="  col-md-12">
+              {/*Inicio*/}
+              <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>×</a>
+                <a href="#" onClick={this.seguimientoEgresados}>Seguimiento de Egresados</a>
+                <a href="#" onClick={this.enviarFormulario}>Revisar Beneficio</a>
+                <a href="#" onClick={this.Regresar}>Regresar</a>
+              </div>
+              {/*Fin*/}
               <table className="table-small">
                 <TableHeader   />
                 <PagoList funcion={this.Funcion} listado={this.state.pageOfItems}  conceptos={this.state.concepto} datos={this.state.datos} datosMonedas={this.state.monedas}  monedas={this.state.monedasvl}/>
@@ -515,19 +538,26 @@ componentDidUpdate(){
                   {/* <ImporteDolar importe={this.CalcularImporteDolar()} /> */}
                 </div>
                 <div className="col-md-7">
-
+                
                   <ImporteDolar importe={this.CalcularImporteDolar()} />
                 </div>
                 <div className="col-md-3">
                 {/* <form action="#">
                     <label className="row  ">
+
                       <input
                         onClick="{this.colocar}"
                         className="align-self-center"
                         id="xd"
                         type="checkbox" />
                         <span> observacion</span>
+
+
+
+
+
                         </label>
+
                   </form> */}
 
                   <div>
@@ -610,8 +640,7 @@ componentDidUpdate(){
 
            <footer>
             <div className="row center-xs centrar color">
-            <img src="https://png.icons8.com/ios/1600/hachiko.png" height="25"/>
-            UPG-FISI © 2018
+            Proyecto SIGAP © 2019
             </div>
             </footer>
 
@@ -797,8 +826,77 @@ seleccionar(){
         }
 }
 
+openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+openMatrAuth(e){
+//uwu
+let codigoAlumno = document.getElementById('codigoAlumno').innerText;
+fetch(CONFIG+'recaudaciones/alumno/concepto/listar_cod/'+ codigoAlumno)
+        .then((response)=>{
+            return response.json()   
+        })
+        .then((pagos)=>{
+            if(pagos.length>0){             
+                swal("Consulta realizada exitosamente","","success").then(browserHistory.push('/MatrAuth/'+ codigoAlumno));
+
+            }
+            else{
+                swal("No se encontraron pagon con el nombre ingresado ","","info");
+            }
+
+
+        })
+        .catch(()=>{
+            swal("Oops,Algo salio mal.!","","error");
+            
+        });
+        e.preventDefault();
+
+}
+closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+
+show_or_hide() {
+  var statusInfo = "";
+  if(this.showboolean==true){
+    statusInfo = "";
+    this.showboolean = false;
+  }
+  else{
+    statusInfo = "none";
+    this.showboolean = true;
+  }
+
+  var len = this.state.pageOfItems.length;
+
+  document.getElementById("ubicacion_header").style.display = statusInfo;
+  document.getElementById("banco_header").style.display = statusInfo;
+
+  for(var i=1; i<=len; i++){
+    document.getElementById("ubicacion" + i).style.display = statusInfo;  
+    document.getElementById("banco" + i).style.display = statusInfo;  
+  }
+
+}
+
+seguimientoEgresados=(e)=>{
+  
+  browserHistory.push(this.state.name+'/vista/egresado');
+  e.preventDefault();
+
+}
 
 enviarFormulario=(e)=>{
+  try{
+    this.closeNav();
+  }
+  catch(error){
+    //Nothing happens
+  }
   if(this.state.aparecer){
     this.setState({
       aparecer:false,
@@ -1042,6 +1140,7 @@ FiltrarFecha(Fechas) {
           })
         }
 /*
+
         console.log(arrayfiltrado);
         console.log(this.state.pagocero);*/
 

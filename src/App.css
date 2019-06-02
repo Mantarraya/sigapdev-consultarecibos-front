@@ -14,12 +14,13 @@
 .tfuente{
   font-size: 15px !important;
 }
-::placeholder {
+::placeholder { 
   color: black;
   text-align: center;
-  opacity: 1;
+  opacity: 1; 
 }
 .opciones{
+  color: black;
   color: black;
 }
 
@@ -32,7 +33,7 @@
   padding-left: 40px;
 }
 .block{
-
+  
   display: block;
 }
 .margen_top{
@@ -51,7 +52,7 @@ width: 130px !important; /*Aquí va el ancho de la Celda*/
   height: 280px;
 }
 .table {
-
+  
   border-collapse: collapse;/*juntamos los border por td y la tabla en si en uno solo*/
   width: 100%;
   border: 3px solid WHITE;
@@ -72,7 +73,7 @@ width: 130px !important; /*Aquí va el ancho de la Celda*/
   align-content: center;
 }
 .th{
-
+  
 height: 10px;
 text-align: center;/*Alineamos el texto al centro ---th por defecto e
 
@@ -92,7 +93,7 @@ border-radius: 8px;
   padding-left: 10px;
   padding-right: 10px;
   border: 3px solid WHITE;
-
+ 
   /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
 }
 
@@ -111,18 +112,18 @@ border-radius: 8px;
     border: 1px solid lightblue;
     border-radius: 4px;
     box-sizing: border-box;
-    background-position: 2px 10px;
+    background-position: 2px 10px; 
     background-repeat: no-repeat;
 } */
 
 label {
-
+ 
   text-align: center;
   display: block;
   margin: .5em 0;
   color: black;
   font-weight: bold;
-
+  
   font-family: 'Times New Roman', Times, serif;
   width: 90px;
 }
@@ -138,7 +139,7 @@ label {
   margin-right:20px;
   margin-top:20px;
  }
-/*
+/* 
 .pagination{
   display: inline-block;
 }
@@ -175,8 +176,8 @@ label {
 .margenFECHA{
   margin-left: 850px;
   margin-top: -20px;
-
- }
+  
+ } 
 
  .container{
    margin-top: 20px;
@@ -184,9 +185,9 @@ label {
   border-radius: 15px;
   padding: 30px;
   width: 500px;
-
-
-
+  
+  
+   
  }
  .sombra{
    background: #e8e5e5;
@@ -197,10 +198,10 @@ label {
  textarea{
    padding: 10px;
    border-radius: 8px;
-
-
+   
+   
  }
-
+ 
 
  .sombra2{
    padding:5px;
@@ -208,18 +209,18 @@ label {
    margin-top: 5px;
    border-radius: 15px;
  }
-
+ 
 
  .margenFECHA2{
   margin-left: 980px;
   margin-top: -63px;
 
- }
-
+ } 
+ 
 .margen2{
   margin-top: 20px;
   margin-bottom: 20px;
- }
+ } 
 .margen_izq{
   margin-left: 65px;
   margin-right: 20px;
@@ -231,7 +232,7 @@ label {
   margin-left: 150px;
 }
 .margen{
-
+  
   padding-left: 10px;
   padding-right: 40px;
 }
@@ -301,7 +302,7 @@ select {
   text-align:center;
 } */
 /* .boton:hover{
-
+  
   background-color: black;
   color:lightblue;
 } */
@@ -321,7 +322,7 @@ h4{
 }
 .Alumno{
   color: #215c75;
-
+  
 }
 
 h6 {
@@ -411,12 +412,12 @@ h6 {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-
+ 
 .numero li:hover {
   color: #607D8B;
   background-color: #DDD;
 }
-
+ 
 button {
   background-color: #eee;
   border: none;
@@ -444,38 +445,59 @@ button.delete:hover{
   background-color: teal;
 }
 .row {
-
+ 
    margin-bottom: 0px;
 }
+.align-vertical-center{
+  display: block;
+  margin-top: 2%;
+  margin-left: 20px;
+}
+.collection-left {
+  width: 250px;
+  margin-top: 2px;
+  box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
+}
+.content-menu{
+  display: flex;
+  
+}
 
-/* The Modal (background) */
-.modal {
+/*Navbar style*/
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-  display: none; /* Hidden by default */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
   position: absolute;
-  width: 40%; /* Full width */
-  height: 100%; /* Full height */
-  margin: 100px auto;
-  padding: 20px;
-  background: #fff;
-  border: 1px solid #666;
-  border-radius:6px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-
-
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
-.modal .close {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	top: 20px;
-	right: 20px;
-	opacity: 0.8;
-	transition: all 200ms;
-	font-size: 24px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #777;
+#main {
+  transition: margin-right .5s;
 }
-

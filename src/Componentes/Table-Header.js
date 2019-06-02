@@ -3,25 +3,23 @@ import '../App.css';
 class TableHeader extends React.Component {
 
   render() {
-
-/* Front - The Knights -  */
-
     return(
     <thead>
 			<tr>      
-        <th className="th">SELECCIONAR</th>
+        <th className="th">SELECT</th>
         <th className="th">N°</th>
-
-        <th className="th">OPERACIÓN</th>      
-        <th className="th ancho">FECHA COMPROBANTE</th>
-        <th className="th">C</th>
-        <th className="th">N° COMPROBANTE</th>
+        <th className="th">CICLO</th>
+        <th className="th ancho">CONCEPTO</th>
+        <th className="th">Nº RECIBO</th>
+        <th className="th">FECHA</th>
+        <th className="th ancho">MONEDA</th>
         <th className="th">IMPORTE</th>
-        <th className="th ancho">AMORTIZACIÓN</th>
-        <th className="th">FECHA VENCIMIENTO</th>
-        <th className="th">CONDICIÓN</th>
-        <th className="th">EDITAR</th>
-        <th className="th">GUARDAR</th>
+        <th className="th ancho" id = "ubicacion_header" style={{display: 'none'}}>UBICACION</th>
+        <th className="th" id = "banco_header" style={{display: 'none'}}>CTA BANCO</th>
+        <th className="th" id = "search_header">OBSV</th>
+        <th className="th" id = "edit_header">EDITAR</th>
+        <th className="th" id = "save_header">GUARDAR</th>
+        <th className="th">TIPO</th>
       </tr>
 	</thead>
     )
